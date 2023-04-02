@@ -9,7 +9,7 @@ const markup = galleryItems
   .map(
     ({ preview, original, description }) =>
       `<li>
-    <img src="${preview}"
+    <img src="${preview}" class="gallery__image"
     alt="${description}"/>
  </li>`
   )
