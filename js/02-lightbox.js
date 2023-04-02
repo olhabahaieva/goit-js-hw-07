@@ -34,10 +34,6 @@ function onClick(evt) {
     </div>`,
    });
 
-   
-
-
-  instance.show();
 }
 
 console.log(galleryItems);
