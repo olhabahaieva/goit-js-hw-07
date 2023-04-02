@@ -8,9 +8,14 @@ const gallery = document.querySelector("ul.gallery");
 const markup = galleryItems
   .map(
     ({ preview, original, description }) =>
-      `<li>
-    <img src="${preview}" class="gallery__image"
+      `<li class="gallery__item">
+      <a class="gallery__link" href="${original}">
+    <img 
+    class="gallery__image"
+    src="${preview}" 
+    data-source="${original}"
     alt="${description}"/>
+    </a>
  </li>`
   )
   .join("");
@@ -20,6 +25,7 @@ console.log(galleryItems);
 gallery.addEventListener("click", onClick);
 
 function onClick(evt) {
+  evt.preventDefault();
   const image = evt.target;
   const galleryItem = galleryItems.find(
     (item) => item.preview === image.src
