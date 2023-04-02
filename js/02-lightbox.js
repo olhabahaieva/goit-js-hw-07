@@ -27,11 +27,16 @@ function onClick(evt) {
   const galleryItem = galleryItems.find(
     (item) => item.preview === image.src
   );
-  const instance = basicLightbox.create(`
-    <div class="modal">
+  
+  const lightbox = new SimpleLightbox('.gallery a', { 
+    content: `<div class="modal">
     <img src="${galleryItem.original}" class="gallery__item">
-    </div>
-`);
+    </div>`,
+    spinner: false
+   });
+
+   
+
 
   instance.show();
 }
