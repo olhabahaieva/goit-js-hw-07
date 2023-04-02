@@ -10,6 +10,6 @@ const markup = galleryItems.map(({preview, original, description}) =>
     <img src="${preview}"
     alt="${description}"/>
  </li>`
-)
+).join('');
 gallery.insertAdjacentHTML("beforeend", markup);
 console.log(galleryItems);
