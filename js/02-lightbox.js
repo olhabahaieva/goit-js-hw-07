@@ -32,7 +32,6 @@ function onClick(evt) {
     content: `<div class="modal">
     <img src="${galleryItem.original}" class="gallery__item">
     </div>`,
-    spinner: false
    });
 
    
