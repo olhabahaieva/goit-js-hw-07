@@ -1,6 +1,4 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
-
 
 // Initial html element to add new pictures
 const gallery = document.querySelector("ul.gallery");
@@ -30,8 +28,11 @@ function onClick(evt) {
   
   const lightbox = new SimpleLightbox('.gallery a', { 
     content: `<div class="modal">
-    <img src="${galleryItem.original}" class="gallery__item">
+    <img src="${galleryItem.original}" 
+    class="gallery__item">
     </div>`,
+    captionsData: "alt",
+    captionDelay: 250
    });
 
 }
