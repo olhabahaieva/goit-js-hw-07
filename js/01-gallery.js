@@ -26,7 +26,9 @@ gallery.addEventListener("click", onClick);
 
 function onClick(evt) {
   evt.preventDefault();
-  const image = evt.target;
+  const image = evt.target.closest('.gallery__image');
+  if (!image) return;
+  
   const galleryItem = galleryItems.find(
     (item) => item.preview === image.src
   );
