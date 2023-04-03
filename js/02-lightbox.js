@@ -1,4 +1,4 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from "./gallery-items.js";
 
 // Initial html element to add new pictures
 const gallery = document.querySelector("ul.gallery");
@@ -7,34 +7,19 @@ const gallery = document.querySelector("ul.gallery");
 const markup = galleryItems
   .map(
     ({ preview, original, description }) =>
- `<li class="gallery__item">
-   <a class="gallery__link" href="${original}">
-      <img class="gallery__image" src="${preview}" alt="${description}" />
-   </a>
-</li>`
+      `<li class="gallery__item">
+      <a class="gallery__link" href="${original}">
+        <img class="gallery__image" src="${preview}" alt="${description}" />
+      </a>
+    </li>`
   )
   .join("");
+
 gallery.insertAdjacentHTML("beforeend", markup);
-console.log(galleryItems);
 
-gallery.addEventListener("click", onClick);
-
-function onClick(evt) {
-  evt.preventDefault();
-  const image = evt.target;
-  const galleryItem = galleryItems.find(
-    (item) => item.preview === image.src
-  );
-  
-  const lightbox = new SimpleLightbox('.gallery a', { 
-    content: `<div class="modal">
-    <img src="${galleryItem.original}" 
-    class="gallery__item">
-    </div>`,
-    captionsData: "alt",
-    captionDelay: 250
-   });
-
-}
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
 
 console.log(galleryItems);
