@@ -22,19 +22,17 @@ const markup = galleryItems
 gallery.insertAdjacentHTML("beforeend", markup);
 console.log(galleryItems);
 
-gallery.addEventListener("click", onClick);
+gallery.addEventListener("click", onGalleryClick);
 
-function onClick(evt) {
+function onGalleryClick(evt) {
   evt.preventDefault();
-  const image = evt.target.closest('.gallery__image');
-  if (!image) return;
-  
-  const galleryItem = galleryItems.find(
-    (item) => item.preview === image.src
-  );
+  const image = evt.target;
+  if (image.nodeName !== "IMG") {
+    return;
+  }
   const instance = basicLightbox.create(`
     <div class="modal">
-    <img src="${galleryItem.original}" class="gallery__item">
+    <img src="${image.dataset.source}" class="gallery__item">
     </div>
 `);
 
